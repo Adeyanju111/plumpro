@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -44,135 +44,81 @@
             padding: 0 24px;
         }
 
-        /* Header / Nav - REDESIGNED */
+        /* Header */
         .navbar {
             background: #0b2b40;
+            color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 32px;
+            padding: 16px 24px;
             max-width: 1400px;
             margin: 0 auto;
-            flex-wrap: wrap;
         }
         .logo a {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 800;
             text-decoration: none;
-            background: linear-gradient(135deg, #ffb347 0%, #ff8c1a 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffb347;
             letter-spacing: -0.5px;
         }
         .logo span {
-            background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 700;
+            color: white;
+            font-weight: 500;
         }
-        /* New nav style - modern tabs */
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 28px;
             list-style: none;
-            align-items: center;
         }
-        .nav-links li a {
+        .nav-links a {
             text-decoration: none;
             font-weight: 600;
             color: #f0f4f8;
-            transition: 0.25s;
-            font-size: 1rem;
-            padding: 8px 0;
-            position: relative;
+            transition: 0.2s;
+            font-size: 0.95rem;
         }
-        .nav-links li a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #ffb347;
-            transition: width 0.25s;
-        }
-        .nav-links li a:hover:after,
-        .nav-links li a.active:after {
-            width: 100%;
-        }
-        .nav-links li a:hover {
+        .nav-links a:hover {
             color: #ffb347;
         }
-        .btn-emergency-nav {
+        .btn-emergency {
             background: #e25822;
             color: white;
             border: none;
-            padding: 10px 26px;
-            border-radius: 50px;
-            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
             font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(226,88,34,0.3);
-            margin-left: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        .btn-emergency-nav:hover {
+        .btn-emergency:hover {
             background: #c13c0a;
             transform: scale(1.02);
         }
-        /* mobile toggle */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            color: white;
-            cursor: pointer;
-        }
-        @media (max-width: 900px) {
-            .nav-container {
-                padding: 15px 24px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 1.2rem;
-                padding: 1.5rem 0 1rem;
-            }
-            .nav-links.show {
-                display: flex;
-            }
-            .btn-emergency-nav {
-                margin: 0;
-                width: auto;
-            }
-        }
 
-        /* Hero Section - LARGER IMAGE */
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, #0f2c38 0%, #1b4e6e 100%);
             color: white;
-            padding: 70px 0 70px;
+            padding: 70px 0 60px;
         }
         .hero-grid {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
         }
         .hero-content {
             flex: 1;
+            min-width: 280px;
         }
         .hero-content h1 {
             font-size: 3.2rem;
@@ -212,23 +158,60 @@
             background: transparent;
         }
         .hero-image {
-            flex: 1.2;
+            flex: 1;
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 30px 40px -15px rgba(0,0,0,0.4);
-            max-height: 480px;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3);
         }
         .hero-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
-            transition: transform 0.4s ease;
+            object-fit: cover;
         }
-        .hero-image:hover img {
-            transform: scale(1.02);
+        
+        /* Mobile improvements for hero */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 0 40px;
+            }
+            .hero-grid {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-image {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                min-height: 220px;
+                object-fit: cover;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
         }
-        /* Section styles */
+
+        /* Additional styles (unchanged) */
         section {
             padding: 70px 0;
         }
@@ -294,6 +277,11 @@
             flex: 1;
             min-width: 260px;
             border: 1px solid #e2e8f0;
+        }
+        .info-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #0f2c38;
         }
         .hours-list {
             list-style: none;
@@ -364,6 +352,9 @@
             object-fit: cover;
             transition: 0.3s;
         }
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
         .contact-form {
             background: #f1f5f9;
             border-radius: 32px;
@@ -405,7 +396,7 @@
             right: 20px;
             background: #e25822;
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 60px;
             font-weight: 800;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -416,14 +407,15 @@
             gap: 8px;
         }
         @media (max-width: 768px) {
+            .emergency-sticky {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2.1rem;
             }
-            .section-title {
-                font-size: 1.9rem;
-            }
-            .hero-image {
-                max-height: 320px;
+            .btn-primary, .btn-outline-light {
+                padding: 10px 20px;
             }
         }
     </style>
@@ -433,35 +425,32 @@
 <header class="navbar">
     <div class="nav-container">
         <div class="logo"><a href="#">HIDALGO <span>PLUMBING PROS</span></a></div>
-        <div class="menu-toggle" id="mobileMenuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#reviews">Testimonials</a></li>
-            <li><a href="#gallery">Work Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="tel:+15126335215" class="btn-emergency-nav"><i class="fas fa-phone-alt"></i> 24/7 Call Now</a></li>
         </ul>
+        <a href="tel:+15126335215" class="btn-emergency"><i class="fas fa-phone-alt"></i> 24/7 Emergency Call</a>
     </div>
 </header>
 
 <main>
-    <!-- Hero Section with LARGER IMAGE -->
+    <!-- Hero with improved mobile image sizing -->
     <div class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <div class="badge-247" style="background:#ffb347; color:#0b2b40;">⭐ 24/7 Emergency Service • Same Day</div>
+                <div class="badge-247" style="background:#ffb347; color:#0b2b40;">⭐ 24/7 Emergency Service</div>
                 <h1>Fast & Reliable <span>Plumber</span> in Austin, TX</h1>
-                <p>Leaks, drains, water heaters – we fix it all. Licensed, insured, and ready to serve you day or night. Upfront pricing with no hidden fees.</p>
+                <p>Leaks, drains, water heaters – we fix it all. Licensed, insured, and ready to serve you day or night.</p>
                 <div class="hero-buttons">
-                    <a href="tel:+15126335215" class="btn-primary"><i class="fas fa-tools"></i> Call (512) 633-5215</a>
-                    <a href="#contact" class="btn-outline-light">Free Estimate →</a>
+                    <a href="tel:+15126335215" class="btn-primary"><i class="fas fa-tools"></i> Call Now: (512) 633-5215</a>
+                    <a href="#contact" class="btn-outline-light">Request Estimate</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&auto=format" alt="Professional plumber repairing pipe with tools" loading="eager">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format" alt="Professional plumber fixing a pipe" loading="eager">
             </div>
         </div>
     </div>
@@ -469,7 +458,7 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <h2 class="section-title">Expert Plumbing Services</h2>
+            <h2 class="section-title">Our Plumbing Services</h2>
             <div class="services-grid">
                 <div class="service-card"><i class="fas fa-wrench"></i><h3>Emergency Repair</h3><p>24/7 burst pipes, leaks, and urgent fixes. Same-day response.</p></div>
                 <div class="service-card"><i class="fas fa-water"></i><h3>Drain Cleaning</h3><p>Hydro-jetting & snaking to clear stubborn clogs fast.</p></div>
@@ -486,7 +475,7 @@
         <div class="container">
             <h2 class="section-title">Trusted by Austin Homeowners</h2>
             <div style="max-width: 850px; margin:0 auto; text-align: center;">
-                <p style="font-size:1.2rem;">With over 15 years of experience, Hidalgo Plumbing Pros delivers honest, upfront pricing and exceptional workmanship. We treat your home like our own. Our team is background-checked, fully licensed, and committed to excellence.</p>
+                <p style="font-size:1.2rem;">With over 15 years of experience, Hidalgo Plumbing Pros delivers honest, upfront pricing and exceptional workmanship. We treat your home like our own.</p>
                 <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px;">
                     <div><i class="fas fa-check-circle" style="color:#e25822; font-size: 2rem;"></i><br><strong>Licensed & Insured</strong></div>
                     <div><i class="fas fa-clock" style="color:#e25822; font-size: 2rem;"></i><br><strong>24/7 Availability</strong></div>
@@ -499,14 +488,13 @@
     <!-- Hours & Location + Contact Info (same address & phone) -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">We're Here for You 24/7</h2>
+            <h2 class="section-title">We're Here for You</h2>
             <div class="info-flex">
                 <div class="info-card">
-                    <h3><i class="far fa-clock"></i> Service Hours</h3>
+                    <h3><i class="far fa-clock"></i> Hours of Operation</h3>
                     <ul class="hours-list">
                         <li><span>Monday - Sunday</span><span>Open 24/7</span></li>
                         <li><span>Emergency Service</span><span>Always available</span></li>
-                        <li><span>Holidays</span><span>No extra charge</span></li>
                     </ul>
                     <div class="badge-247" style="margin-top: 18px; background:#0b2b40;">🚨 24-Hour Emergency Response</div>
                 </div>
@@ -587,16 +575,6 @@
 <a href="tel:+15126335215" class="emergency-sticky"><i class="fas fa-bolt"></i> 24/7 Emergency Plumber</a>
 
 <script>
-    // Mobile menu toggle
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-    if(toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-        });
-    }
-
-    // Call, Save, Share
     const callBtn = document.getElementById('callBtn');
     const saveBtn = document.getElementById('saveBtn');
     const shareBtn = document.getElementById('shareBtn');
@@ -604,7 +582,7 @@
     if(saveBtn) saveBtn.addEventListener('click', () => {
         if (navigator.clipboard) {
             navigator.clipboard.writeText("Hidalgo Plumbing Pros: 2206 Hidalgo St, Austin, TX 78702 | 512-633-5215 | 24/7 emergency service");
-            alert("Business contact saved to clipboard!");
+            alert("Business contact saved to clipboard! You can paste it anywhere.");
         } else {
             alert("Save our number: 512-633-5215 | Address: 2206 Hidalgo St, Austin, TX 78702");
         }
@@ -615,7 +593,7 @@
                 title: 'Hidalgo Plumbing Pros',
                 text: '24/7 emergency plumber in Austin. Reliable & fast. Call (512) 633-5215!',
                 url: window.location.href,
-            }).catch(() => alert('Share our contact: 512-633-5215'));
+            }).catch(() => alert('Share this page or save our number.'));
         });
     } else if(shareBtn) {
         shareBtn.addEventListener('click', () => alert('Share our contact: 512-633-5215 | Austin plumbing experts'));
@@ -630,8 +608,7 @@
         });
     }
 
-    // smooth scroll for nav links + active
-    document.querySelectorAll('.nav-links a[href^="#"], .hero-buttons a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('.nav-links a, .hero-buttons a[href^="#"], .btn-outline-light').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if(href && href.startsWith('#')) {
@@ -640,29 +617,12 @@
                 const target = document.getElementById(targetId);
                 if(target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    if(navLinks.classList.contains('show')) navLinks.classList.remove('show');
                 }
             }
         });
     });
-
-    // active highlight on scroll
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-links li a');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
-            if(pageYOffset >= sectionTop) current = section.getAttribute('id');
-        });
-        navItems.forEach(link => {
-            link.classList.remove('active');
-            if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
-        });
-    });
 </script>
 
-<!-- JSON-LD for Plumbing Business -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -692,7 +652,12 @@
     "closes": "23:59"
   },
   "priceRange": "$$",
-  "areaServed": "Austin, Texas"
+  "areaServed": "Austin, Texas",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "187"
+  }
 }
 </script>
 </body>
